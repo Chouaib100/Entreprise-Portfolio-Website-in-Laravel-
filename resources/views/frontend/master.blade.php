@@ -1,6 +1,6 @@
 
   @include('frontend.body.header')
-@yaield('home')
+@yield('home')
 
   <main id="main">
 
