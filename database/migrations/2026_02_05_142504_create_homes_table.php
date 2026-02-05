@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('short_desc');
+            $table->string('video_channel');
             $table->timestamps();
         });
     }
