@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.index');
 });
+
+Route::get('/readhome', [HomeController::class, 'readhome'])->name('readhome');
 
 Route::get('/dashboard', function () {
     return view('backend.index');
