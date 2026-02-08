@@ -9,15 +9,9 @@ use App\Models\Home;
 class HomeController extends Controller
 {
     //
-    public function readhome()
+    public function read_home()
     {
         $homes = Home::all();
         return view('admin.home', compact('homes'));
-    }
-
-    public function edit_home($id)
-    {
-        $home = Home::findOrFail($id);
-        return view('admin.edit_home', compact('home'));
     }
 }
