@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Home extends Model
 {
-    //
+    protected $fillable = ['title', 'short_desc', 'video_channel'];
 }

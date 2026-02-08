@@ -14,4 +14,10 @@ class HomeController extends Controller
         $homes = Home::all();
         return view('admin.home', compact('homes'));
     }
+
+    public function edit_home($id)
+    {
+        $home = Home::findOrFail($id);
+        return view('admin.edit_home', compact('home'));
+    }
 }
