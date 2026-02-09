@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Home;
+use App\Models\About;
 
 class HomeController extends Controller
 {
@@ -58,5 +59,12 @@ class HomeController extends Controller
        $home->save();
 
         return redirect()->route('read_home');
+    }
+
+
+     public function read_about()
+    {
+        $homes = About::all();
+        return view('admin.about', compact('abouts'));
     }
 }

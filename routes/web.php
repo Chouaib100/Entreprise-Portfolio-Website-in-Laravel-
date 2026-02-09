@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'show_home'])->name('show_home');
+
+// Admin Home
 Route::get('/read_home', [HomeController::class, 'read_home'])->name('read_home');
 Route::get('/edit_home/{id}', [HomeController::class, 'edit_home'])->name('edit_home');
 Route::post('/update_home/{id}', [HomeController::class, 'update_home'])->name('update_home');
 
+// Admin About
 
+Route::get('/read_about', [HomeController::class, 'read_about'])->name('read_about');
 
 
 Route::get('/dashboard', function () {
