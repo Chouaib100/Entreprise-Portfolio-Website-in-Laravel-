@@ -57,6 +57,6 @@ class HomeController extends Controller
        $home->video_channel = $request->video_channel;
        $home->save();
 
-       return redirect()->route('read_home')->with('success', 'Home record updated successfully!');
+        return redirect()->route('read_home');
     }
 }
