@@ -21,23 +21,14 @@ class HomeController extends Controller
         return view('frontend.index', compact('homes'));
     }
 
-    public function edit_home($id)
-    {
-        $home = Home::findOrFail($id);
-        return view('admin.edit_home', compact('home'));
+    public function edit_home($id){
+
+        $home = Home::find($id);
+
+        return view('admin.form_edit_home',compact('home'));
+
+
     }
 
-    public function update_home(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'short_desc' => 'required|string',
-            'video_channel' => 'required|string|max:255',
-        ]);
+ }
 
-        $home = Home::findOrFail($id);
-        $home->update($validated);
-
-        return redirect()->route('read_home')->with('success', 'Home record updated successfully!');
-    }
-}
