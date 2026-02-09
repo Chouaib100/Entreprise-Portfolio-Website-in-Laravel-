@@ -67,4 +67,13 @@ class HomeController extends Controller
         $abouts = About::all();
         return view('admin.about', compact('abouts'));
     }
+
+    public function edit_about($id){
+
+        $about = About::find($id);
+
+        return view('admin.form_edit_about',compact('about'));
+
+
+    }
 }
