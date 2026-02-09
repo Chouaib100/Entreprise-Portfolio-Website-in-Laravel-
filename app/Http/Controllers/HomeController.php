@@ -30,5 +30,33 @@ class HomeController extends Controller
 
     }
 
- }
+    public function update_home(Request $request, $id){
 
+        $home= Home::find($id);
+
+        $request->validate([
+
+            'title'=>'required',
+            'short_desc'=>'required',
+            'video_channel'=>'required',
+
+        ],
+
+        [
+
+            'title.required'=>'You must type title Please',
+            'short_desc.required'=>'You must type short description Please',
+            'video_channel.required'=>'You must type video_channel Please',
+
+        ]
+
+       );
+
+       $home->title = $request->title;
+       $home->short_desc = $request->short_desc;
+       $home->video_channel = $request->video_channel;
+       $home->save();
+
+       return redirect()->route('read_home')->with('success', 'Home record updated successfully!');
+    }
+}
