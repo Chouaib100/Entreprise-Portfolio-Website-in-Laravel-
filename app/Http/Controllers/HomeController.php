@@ -64,7 +64,7 @@ class HomeController extends Controller
 
      public function read_about()
     {
-        $homes = About::all();
+        $abouts = About::all();
         return view('admin.about', compact('abouts'));
     }
 }

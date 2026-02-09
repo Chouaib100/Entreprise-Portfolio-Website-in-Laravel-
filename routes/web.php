@@ -16,6 +16,8 @@ Route::post('/update_home/{id}', [HomeController::class, 'update_home'])->name('
 // Admin About
 
 Route::get('/read_about', [HomeController::class, 'read_about'])->name('read_about');
+Route::get('/edit_about/{id}', [HomeController::class, 'edit_about'])->name('edit_about');
+Route::post('/update_about/{id}', [HomeController::class, 'update_about'])->name('update_about');
 
 
 Route::get('/dashboard', function () {
