@@ -14,4 +14,10 @@ class HomeController extends Controller
         $homes = Home::all();
         return view('admin.home', compact('homes'));
     }
+
+     public function show_home()
+    {
+        $homes = Home::get()->first();
+        return view('frontend.index', compact('homes'));
+    }
 }
