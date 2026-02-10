@@ -22,7 +22,7 @@
                                     <tr>
                                     <th scope="col">Title</th>
                                     <th scope="col">Short Desc</th>
-                                    <th scope="col">Icone</th>
+                                    <th scope="col">Icon</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>
                                     </tr>
@@ -33,7 +33,7 @@
                                     <tr>
                                     <td>{{$service->title}}</td>
                                     <td>{{$service->short_desc}}</td>
-                                    <td>{{$service->icone}}</td>
+                                    <td>{{$service->icon}}</td>
 
                                     <td><a class="btn btn-warning" href="{{route('edit_service',$service->id)}}">Edit</a></td>
                                     <td><a class="btn btn-danger" href="{{route('delete_service',$service->id)}}">Delete</a></td>

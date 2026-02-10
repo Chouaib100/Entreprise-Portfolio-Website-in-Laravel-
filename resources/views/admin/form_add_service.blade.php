@@ -30,8 +30,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                    <label for="disabledTextInput" class="form-label">Icone</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" name="icone" placeholder="icone">
+                                    <label for="disabledTextInput" class="form-label">Icon</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" name="icon" placeholder="icon">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Create</button>

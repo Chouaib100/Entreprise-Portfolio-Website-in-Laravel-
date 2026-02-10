@@ -22,12 +22,18 @@ class ServiceController extends Controller
 
     public function create_service(Request $request){
 
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'short_desc' => 'required|string',
+            'icon' => 'required|string|max:50',
+        ]);
+
         $service = new Service;
 
 
         $service->title = $request->title;
         $service->short_desc = $request->short_desc;
-        $service->icone = $request->icone;
+        $service->icon = $request->icon ?? 'default-icon';
 
 
         $service->save();
@@ -63,12 +69,13 @@ class ServiceController extends Controller
     }
 
     public function update_service(Request $request, $id){
+        
 
         $service= Service::find($id);
 
         $service->title = $request->title;
         $service->short_desc = $request->short_desc;
-        $service->icone = $request->icone;
+        $service->icon = $request->icon ?? 'default-icon';
 
 
         $service->save();
