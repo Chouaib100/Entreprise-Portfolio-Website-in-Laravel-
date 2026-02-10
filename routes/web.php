@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PortfolioController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,15 @@ Route::get('/delete_service/{id}', [ServiceController::class, 'delete_service'])
 Route::get('/edit_service/{id}', [ServiceController::class, 'edit_service'])->name('edit_service');
 Route::post('/update_service/{id}', [ServiceController::class, 'update_service'])->name('update_service');
 
+
+//Admin Portfolio
+
+Route::get('/read_portfolio', [PortfolioController::class, 'read_portfolio'])->name('read_portfolio');
+Route::get('/add_portfolio', [PortfolioController::class, 'add_portfolio'])->name('add_portfolio');
+Route::post('/create_portfolio', [PortfolioController::class, 'create_portfolio'])->name('create_portfolio');
+Route::get('/delete_portfolio/{id}', [PortfolioController::class, 'delete_portfolio'])->name('delete_portfolio');
+Route::get('/edit_portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit_portfolio');
+Route::post('/update_portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update_portfolio');
 
 
 
