@@ -18,7 +18,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('read_home') }}">Home</a>
                                     <a class="nav-link" href="{{ route('read_about') }}">About</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Services</a>
+                                    <a class="nav-link" href="{{ route('read_service') }}">Services</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Portfolio</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Team</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Contact</a>
