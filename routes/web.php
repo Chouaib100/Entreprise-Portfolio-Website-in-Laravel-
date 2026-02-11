@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\TeamController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,16 @@ Route::post('/create_portfolio', [PortfolioController::class, 'create_portfolio'
 Route::get('/delete_portfolio/{id}', [PortfolioController::class, 'delete_portfolio'])->name('delete_portfolio');
 Route::get('/edit_portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit_portfolio');
 Route::post('/update_portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update_portfolio');
+
+
+//Admin Team
+
+Route::get('/read_team', [TeamController::class, 'read_team'])->name('read_team');
+Route::get('/add_team', [TeamController::class, 'add_team'])->name('add_team');
+Route::post('/create_team', [TeamController::class, 'create_team'])->name('create_team');
+Route::get('/delete_team/{id}', [TeamController::class, 'delete_team'])->name('delete_team');
+Route::get('/edit_team/{id}', [TeamController::class, 'edit_team'])->name('edit_team');
+Route::post('/update_team/{id}', [TeamController::class, 'update_team'])->name('update_team');
 
 
 
