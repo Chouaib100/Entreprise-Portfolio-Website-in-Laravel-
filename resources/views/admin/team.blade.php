@@ -19,12 +19,13 @@
                             <div class="card-body">
 
 
-                            <table class="table">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                     <th scope="col">Image</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Job</th>
+                                    <th scope="col">Short Desc</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>
                                     </tr>
@@ -33,12 +34,12 @@
 
                                 @foreach($teams as $team)
                                     <tr>
-                                    <td><img height="100" width="100" src="\photo_team\{{$team->photo}}"></td>
-                                    <td>{{$team->name}}</td>
-                                    <td>{{$team->job}}</td>
-
-                                    <td><a class="btn btn-warning" href="{{route('edit_team',$team->id)}}">Edit</a></td>
-                                    <td><a class="btn btn-danger" href="{{route('delete_team',$team->id)}}">Delete</a></td>
+                                    <td><img height="100" width="100" src="{{ asset('photo_team/' . $team->photo) }}" alt="{{ $team->name }}" class="img-thumbnail"></td>
+                                    <td>{{ $team->name }}</td>
+                                    <td>{{ $team->job }}</td>
+                                    <td>{{ Str::limit($team->short_desc, 80) }}</td>
+                                    <td><a class="btn btn-warning" href="{{ route('edit_team', $team->id) }}">Edit</a></td>
+                                    <td><a class="btn btn-danger" href="{{ route('delete_team', $team->id) }}" onclick="return confirm('Delete this member?')">Delete</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

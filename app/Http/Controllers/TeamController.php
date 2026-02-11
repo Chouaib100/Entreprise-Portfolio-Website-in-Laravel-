@@ -35,33 +35,28 @@ class TeamController extends Controller
         $team->twitter= $request->twitter;
 
 //image
-        $image = $request->photo;
-
-        $photoname = time().'.'.$image->getClientOriginalExtension();
-
-        $image->move('photo_team',$photoname);
-
-        $team->photo = $photoname;
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $photoname = time() . '_photo.' . $image->getClientOriginalExtension();
+            $image->move(public_path('photo_team'), $photoname);
+            $team->photo = $photoname;
+        }
 
 //pdf
-
-        $pdfresume = $request->pdfresume;
-
-        $pdfresumename = time().'.'.$pdfresume->getClientOriginalExtension();
-
-        $pdfresume->move('pdfteams',$pdfresumename);
-
-        $team->pdfresume = $pdfresumename;
+        if ($request->hasFile('pdfresume')) {
+            $pdfresume = $request->file('pdfresume');
+            $pdfresumename = time() . '_resume.' . $pdfresume->getClientOriginalExtension();
+            $pdfresume->move(public_path('pdfteams'), $pdfresumename);
+            $team->pdfresume = $pdfresumename;
+        }
 
 //video
-
-        $videocandidate = $request->videocandidate;
-
-        $videocandidatename = time().'.'.$videocandidate->getClientOriginalExtension();
-
-        $videocandidate->move('videoteams',$videocandidatename);
-
-        $team->videocandidate = $videocandidatename;
+        if ($request->hasFile('videocandidate')) {
+            $videocandidate = $request->file('videocandidate');
+            $videocandidatename = time() . '_video.' . $videocandidate->getClientOriginalExtension();
+            $videocandidate->move(public_path('videoteams'), $videocandidatename);
+            $team->videocandidate = $videocandidatename;
+        }
 
 
         $team->save();
@@ -77,7 +72,9 @@ class TeamController extends Controller
 
         $team = Team::find($id);
 
-        unlink('photo_team/'.$team->photo);
+        if ($team && $team->photo && file_exists(public_path('photo_team/'.$team->photo))) {
+            unlink(public_path('photo_team/'.$team->photo));
+        }
 
         $team->delete();
 
