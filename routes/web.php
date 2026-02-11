@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\ContactController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,11 @@ Route::post('/create_team', [TeamController::class, 'create_team'])->name('creat
 Route::get('/delete_team/{id}', [TeamController::class, 'delete_team'])->name('delete_team');
 Route::get('/edit_team/{id}', [TeamController::class, 'edit_team'])->name('edit_team');
 Route::post('/update_team/{id}', [TeamController::class, 'update_team'])->name('update_team');
+
+// Admin Home
+Route::get('/read_contact', [ContactController::class, 'read_contact'])->name('read_contact');
+Route::get('/edit_contact/{id}', [ContactController::class, 'edit_contact'])->name('edit_contact');
+Route::post('/update_contact/{id}', [ContactController::class, 'update_contact'])->name('update_contact');
 
 
 
