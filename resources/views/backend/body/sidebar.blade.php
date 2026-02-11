@@ -20,7 +20,7 @@
                                     <a class="nav-link" href="{{ route('read_about') }}">About</a>
                                     <a class="nav-link" href="{{ route('read_service') }}">Services</a>
                                     <a class="nav-link" href="{{ route('read_portfolio') }}">Portfolio</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Team</a>
+                                    <a class="nav-link" href="{{ route('read_team') }}">Team</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Contact</a>
                                 </nav>
                             </div>
