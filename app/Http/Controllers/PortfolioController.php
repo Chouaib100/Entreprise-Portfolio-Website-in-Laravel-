@@ -43,9 +43,6 @@ class PortfolioController extends Controller
 
         return redirect()->route('read_portfolio');
 
-
-
-
     }
 
     public function delete_portfolio($id){
