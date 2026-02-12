@@ -82,6 +82,23 @@ Route::get('/write_to_all_subscriber', [SubscriberController::class,'write_to_al
 Route::post('/send_mail_to_all_subscriber', [SubscriberController::class,'send_mail_to_all_subscriber'])->name('send_mail_to_all_subscriber');
 
 
+//Admin Candidates
+
+
+
+Route::get('/read_candidate', [CandidateController::class,'read_candidate'])->name('read_candidate');
+Route::post('/create_candidate', [CandidateController::class,'create_candidate'])->name('create_candidate');
+Route::get('/delete_candidate/{id}', [CandidateController::class,'delete_candidate'])->name('delete_candidate');
+Route::get('/edit_candidate{id}', [CandidateController::class,'edit_candidate'])->name('edit_candidate');
+Route::post('/update_candidate/{id}', [CandidateController::class,'update_candidate'])->name('update_candidate');
+Route::post('/search_candidate', [CandidateController::class,'search_candidate'])->name('search_candidate');
+Route::get('/pdfdownload_candidate/{id}', [CandidateController::class,'pdfdownload_candidate'])->name('pdfdownload_candidate');
+Route::get('/videocandidate_candidate/{id}', [CandidateController::class,'videocandidate_candidate'])->name('videocandidate_candidate');
+Route::get('/write_to_one/{id}', [CandidateController::class,'write_to_one'])->name('write_to_one');
+Route::post('/send_mail_to_one', [CandidateController::class,'send_mail_to_one'])->name('send_mail_to_one');
+Route::get('/write_to_all', [CandidateController::class,'write_to_all'])->name('write_to_all');
+Route::post('/send_mail_to_all', [CandidateController::class,'send_mail_to_all'])->name('send_mail_to_all');
+
 
 
 
