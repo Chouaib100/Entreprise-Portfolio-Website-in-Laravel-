@@ -6,6 +6,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FormContactController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -59,8 +60,8 @@ Route::get('/read_contact', [ContactController::class, 'read_contact'])->name('r
 Route::get('/edit_contact/{id}', [ContactController::class, 'edit_contact'])->name('edit_contact');
 Route::post('/update_contact/{id}', [ContactController::class, 'update_contact'])->name('update_contact');
 
-//Admin Form Contact
 
+//Admin Form Contact
 
 Route::post('/create_formcontact', [FormContactController::class, 'create_formcontact'])->name('create_formcontact');
 Route::get('/read_formcontact', [FormContactController::class, 'read_formcontact'])->name('read_formcontact');

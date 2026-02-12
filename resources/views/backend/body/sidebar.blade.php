@@ -22,6 +22,7 @@
                                     <a class="nav-link" href="{{ route('read_portfolio') }}">Portfolio</a>
                                     <a class="nav-link" href="{{ route('read_team') }}">Team</a>
                                     <a class="nav-link" href="{{ route('read_contact') }}">Contact</a>
+                                    <a class="nav-link" href="{{ route('read_formcontact') }}">Form Contact</a>
                                 </nav>
                             </div>
 
