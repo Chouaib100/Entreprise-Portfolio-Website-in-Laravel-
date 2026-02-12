@@ -8,6 +8,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormContactController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\CandidateController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
