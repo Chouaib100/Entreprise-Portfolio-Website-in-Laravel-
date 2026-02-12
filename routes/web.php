@@ -7,6 +7,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormContactController;
+use App\Http\Controllers\SubscriberController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +68,20 @@ Route::post('/create_formcontact', [FormContactController::class, 'create_formco
 Route::get('/read_formcontact', [FormContactController::class, 'read_formcontact'])->name('read_formcontact');
 Route::get('/detail_formcontact/{id}', [FormContactController::class, 'detail_formcontact'])->name('detail_formcontact');
 Route::get('/delete_formcontact/{id}', [FormContactController::class, 'delete_formcontact'])->name('delete_formcontact');
+
+
+//Admin Form Subscriber
+
+Route::post('/create_subscriber', [SubscriberController::class, 'create_subscriber'])->name('create_subscriber');
+Route::get('/read_subscriber', [SubscriberController::class, 'read_subscriber'])->name('read_subscriber');
+Route::get('/detail_subscriber/{id}', [SubscriberController::class, 'detail_subscriber'])->name('detail_subscriber');
+Route::get('/delete_subscriber/{id}', [SubscriberController::class, 'delete_subscriber'])->name('delete_subscriber');
+Route::get('/write_to_one_subscriber/{id}', [SubscriberController::class,'write_to_one_subscriber'])->name('write_to_one_subscriber');
+Route::post('/send_mail_to_one_subscriber', [SubscriberController::class,'send_mail_to_one_subscriber'])->name('send_mail_to_one_subscriber');
+Route::get('/write_to_all_subscriber', [SubscriberController::class,'write_to_all_subscriber'])->name('write_to_all_subscriber');
+Route::post('/send_mail_to_all_subscriber', [SubscriberController::class,'send_mail_to_all_subscriber'])->name('send_mail_to_all_subscriber');
+
+
 
 
 
