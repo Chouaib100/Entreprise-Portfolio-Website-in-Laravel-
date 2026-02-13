@@ -1,120 +1,113 @@
-🚀 Laravel Web Application
+# 🚀 Laravel Web Application
 
-A modern and responsive web application built with Laravel 11, designed with a modular architecture and integrated management system.
+A modern and responsive web application built with **Laravel 11**, designed with a modular architecture and integrated management system.
 
-📌 Project Overview
+---
 
-This project is a full-stack Laravel application that includes both Frontend and Admin Panel functionalities.
+## 📌 Project Overview
+
+This project is a full-stack Laravel application that includes both **Frontend** and **Admin Panel** functionalities.
 
 It provides content management, candidate applications handling, email campaigns, and authentication features with strong security practices.
 
-📋 Core Modules
+---
 
-The system is structured into 10 main modules:
+## 📋 Core Modules
 
-Home – Landing page with dynamic content
+The system is structured into **10 main modules**:
 
-About – Company/Platform information
+- **Home** – Landing page with dynamic content  
+- **About** – Company/Platform information  
+- **Services** – Services listing and management  
+- **Portfolio** – Projects showcase with file uploads  
+- **Team** – Team members management  
+- **Candidates** – Job application system  
+- **Contacts** – Contact form submissions  
+- **Email** – Email campaigns & notifications  
+- **Auth** – Authentication system  
+- **Admin Dashboard** – Content & system management  
 
-Services – Services listing and management
+---
 
-Portfolio – Projects showcase with file uploads
+## 🔌 Key Integrations
 
-Team – Team members management
+- 📧 **Email System** – Laravel Mail integration  
+- 📂 **File Upload System** – Secure file handling (CVs, portfolio images)  
+- 🗄 **Database Integration** – MySQL relational database  
+- 🖥 **Frontend + Admin Panel** – Separated management structure  
 
-Candidates – Job application system
+---
 
-Contacts – Contact form submissions
+## 📊 Data Workflows
 
-Email – Email campaigns & notifications
+### 👨‍💼 Candidate Applications
 
-Auth – Authentication system
+1. User submits application form  
+2. CV & data stored securely  
+3. Admin reviews submissions from dashboard  
 
-Admin Dashboard – Content & system management
-
-🔌 Key Integrations
-
-📧 Email System – Laravel Mail integration
-
-📂 File Upload System – Secure file handling (CVs, portfolio images)
-
-🗄 Database Integration – MySQL relational database
-
-🖥 Frontend + Admin Panel – Separated management structure
-
-📊 Data Workflows
-👨‍💼 Candidate Applications
-
-User submits application form
-
-CV & data stored securely
-
-Admin reviews submissions from dashboard
-
-📝 Content Management
+### 📝 Content Management
 
 Admin manages:
 
-Services
+- Services  
+- Portfolio items  
+- Team members  
+- About section  
 
-Portfolio items
+### 📧 Email Campaigns
 
-Team members
+- Admin can send structured email messages  
+- Integrated mail system for notifications  
 
-About section
+---
 
-📧 Email Campaigns
-
-Admin can send structured email messages
-
-Integrated mail system for notifications
-
-🔐 Security Features
+## 🔐 Security Features
 
 This project follows Laravel best practices:
 
-✅ CSRF Protection
+- ✅ CSRF Protection  
+- ✅ Authentication & Authorization  
+- ✅ Form Validation  
+- ✅ Secure File Upload Handling  
+- ✅ Protected Admin Routes  
+- ✅ Input Sanitization  
 
-✅ Authentication & Authorization
+---
 
-✅ Form Validation
+## 💾 Tech Stack
 
-✅ Secure File Upload Handling
+| Technology   | Description               |
+|--------------|---------------------------|
+| Laravel 11   | Backend Framework         |
+| MySQL        | Relational Database       |
+| Bootstrap 5  | Frontend UI Framework     |
+| PHP 8+       | Server-side language      |
 
-✅ Protected Admin Routes
+---
 
-✅ Input Sanitization
+## 🚀 Development Status
 
-💾 Tech Stack
-Technology	Description
-Laravel 11	Backend Framework
-MySQL	Relational Database
-Bootstrap 5	Frontend UI Framework
-PHP 8+	Server-side language
-🚀 Development Status
-✅ Completed Features
+### ✅ Completed Features
 
-All 10 core modules implemented
+- All 10 core modules implemented  
+- Full Admin CRUD system  
+- Email integration  
+- Candidate management system  
+- Responsive frontend  
 
-Full Admin CRUD system
+### 🔧 Phase 1 Fixes Applied
 
-Email integration
+- Improved validation rules  
+- Enhanced security checks  
+- Refactored controllers  
+- Optimized routes structure  
 
-Candidate management system
+---
 
-Responsive frontend
+## ⚙ Installation
 
-🔧 Phase 1 Fixes Applied
-
-Improved validation rules
-
-Enhanced security checks
-
-Refactored controllers
-
-Optimized routes structure
-
-⚙ Installation
+```bash
 git clone https://github.com/your-username/your-repository.git
 cd your-repository
 composer install
@@ -122,11 +115,15 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
+```
 
-📂 Environment Setup
+---
 
-Configure your .env file:
+## 📂 Environment Setup
 
+Configure your `.env` file:
+
+```env
 DB_DATABASE=your_database
 DB_USERNAME=root
 DB_PASSWORD=your_password
@@ -136,17 +133,20 @@ MAIL_HOST=your_mail_host
 MAIL_PORT=587
 MAIL_USERNAME=your_email
 MAIL_PASSWORD=your_password
+```
 
-👨‍💻 Author
+---
 
-Chouaib Zouine
+## 👨‍💻 Author
 
-💼 Full-Stack Developer
+**Chouaib Zouine**
 
-🌍 Passionate about secure web development
+- 💼 Full-Stack Developer  
+- 🌍 Passionate about secure web development  
+- 🔐 Interested in Web Security & Backend Architecture  
 
-🔐 Interested in Web Security & Backend Architecture
+---
 
-📄 License
+## 📄 License
 
 This project is open-source and available under the MIT License.
