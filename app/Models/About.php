@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class About extends Model
 {
-    //
+    protected $fillable = [
+        'title',
+        'content',
+        'short_desc',
+    ];
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 }

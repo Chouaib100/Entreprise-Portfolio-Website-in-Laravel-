@@ -33,7 +33,7 @@ Route::post('/update_about/{id}', [HomeController::class, 'update_about'])->name
 Route::get('/read_service', [ServiceController::class, 'read_service'])->name('read_service');
 Route::get('/add_service', [ServiceController::class, 'add_service'])->name('add_service');
 Route::post('/create_service', [ServiceController::class, 'create_service'])->name('create_service');
-Route::get('/delete_service/{id}', [ServiceController::class, 'delete_service'])->name('delete_service');
+Route::delete('/delete_service/{id}', [ServiceController::class, 'delete_service'])->name('delete_service');
 Route::get('/edit_service/{id}', [ServiceController::class, 'edit_service'])->name('edit_service');
 Route::post('/update_service/{id}', [ServiceController::class, 'update_service'])->name('update_service');
 
@@ -43,7 +43,7 @@ Route::post('/update_service/{id}', [ServiceController::class, 'update_service']
 Route::get('/read_portfolio', [PortfolioController::class, 'read_portfolio'])->name('read_portfolio');
 Route::get('/add_portfolio', [PortfolioController::class, 'add_portfolio'])->name('add_portfolio');
 Route::post('/create_portfolio', [PortfolioController::class, 'create_portfolio'])->name('create_portfolio');
-Route::get('/delete_portfolio/{id}', [PortfolioController::class, 'delete_portfolio'])->name('delete_portfolio');
+Route::delete('/delete_portfolio/{id}', [PortfolioController::class, 'delete_portfolio'])->name('delete_portfolio');
 Route::get('/edit_portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit_portfolio');
 Route::post('/update_portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update_portfolio');
 
@@ -53,7 +53,7 @@ Route::post('/update_portfolio/{id}', [PortfolioController::class, 'update_portf
 Route::get('/read_team', [TeamController::class, 'read_team'])->name('read_team');
 Route::get('/add_team', [TeamController::class, 'add_team'])->name('add_team');
 Route::post('/create_team', [TeamController::class, 'create_team'])->name('create_team');
-Route::get('/delete_team/{id}', [TeamController::class, 'delete_team'])->name('delete_team');
+Route::delete('/delete_team/{id}', [TeamController::class, 'delete_team'])->name('delete_team');
 Route::get('/edit_team/{id}', [TeamController::class, 'edit_team'])->name('edit_team');
 Route::post('/update_team/{id}', [TeamController::class, 'update_team'])->name('update_team');
 
@@ -68,7 +68,7 @@ Route::post('/update_contact/{id}', [ContactController::class, 'update_contact']
 Route::post('/create_formcontact', [FormContactController::class, 'create_formcontact'])->name('create_formcontact');
 Route::get('/read_formcontact', [FormContactController::class, 'read_formcontact'])->name('read_formcontact');
 Route::get('/detail_formcontact/{id}', [FormContactController::class, 'detail_formcontact'])->name('detail_formcontact');
-Route::get('/delete_formcontact/{id}', [FormContactController::class, 'delete_formcontact'])->name('delete_formcontact');
+Route::delete('/delete_formcontact/{id}', [FormContactController::class, 'delete_formcontact'])->name('delete_formcontact');
 
 
 //Admin Form Subscriber
@@ -76,7 +76,7 @@ Route::get('/delete_formcontact/{id}', [FormContactController::class, 'delete_fo
 Route::post('/create_subscriber', [SubscriberController::class, 'create_subscriber'])->name('create_subscriber');
 Route::get('/read_subscriber', [SubscriberController::class, 'read_subscriber'])->name('read_subscriber');
 Route::get('/detail_subscriber/{id}', [SubscriberController::class, 'detail_subscriber'])->name('detail_subscriber');
-Route::get('/delete_subscriber/{id}', [SubscriberController::class, 'delete_subscriber'])->name('delete_subscriber');
+Route::delete('/delete_subscriber/{id}', [SubscriberController::class, 'delete_subscriber'])->name('delete_subscriber');
 Route::get('/write_to_one_subscriber/{id}', [SubscriberController::class,'write_to_one_subscriber'])->name('write_to_one_subscriber');
 Route::post('/send_mail_to_one_subscriber', [SubscriberController::class,'send_mail_to_one_subscriber'])->name('send_mail_to_one_subscriber');
 Route::get('/write_to_all_subscriber', [SubscriberController::class,'write_to_all_subscriber'])->name('write_to_all_subscriber');
@@ -89,8 +89,8 @@ Route::post('/send_mail_to_all_subscriber', [SubscriberController::class,'send_m
 
 Route::get('/read_candidate', [CandidateController::class,'read_candidate'])->name('read_candidate');
 Route::post('/create_candidate', [CandidateController::class,'create_candidate'])->name('create_candidate');
-Route::get('/delete_candidate/{id}', [CandidateController::class,'delete_candidate'])->name('delete_candidate');
-Route::get('/edit_candidate{id}', [CandidateController::class,'edit_candidate'])->name('edit_candidate');
+Route::delete('/delete_candidate/{id}', [CandidateController::class,'delete_candidate'])->name('delete_candidate');
+Route::get('/edit_candidate/{id}', [CandidateController::class,'edit_candidate'])->name('edit_candidate');
 Route::post('/update_candidate/{id}', [CandidateController::class,'update_candidate'])->name('update_candidate');
 Route::post('/search_candidate', [CandidateController::class,'search_candidate'])->name('search_candidate');
 Route::get('/pdfdownload_candidate/{id}', [CandidateController::class,'pdfdownload_candidate'])->name('pdfdownload_candidate');

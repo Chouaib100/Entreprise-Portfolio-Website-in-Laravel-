@@ -11,6 +11,10 @@ class CandidateController extends Controller
 {
 
 
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['add_candidate', 'create_candidate']);
+    }
     public function add_candidate(){
 
         return view('frontend.candidates');
@@ -23,9 +27,9 @@ class CandidateController extends Controller
         $request->validate([
 
             'name'=>'required|min:3|max:30',
-            'job'=>'required|min:3|max:100',
-            'phone'=>'required|max:14',
-            'email'=>'required|unique:candidates|email',
+            'photo'=>'required|image|mimes:jpg,png,jpeg,gif|max:2048',
+            'pdfresume'=>'required|mimes:pdf|max:5120',
+            'videocandidate'=>'required|mimes:mp4|max:20480',
             'address'=>'required|max:200',
             'photo'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:1024',
             'pdfresume'=>'required|mimes:pdf|max:10024',
@@ -35,31 +39,28 @@ class CandidateController extends Controller
 
         [
 
-            'name.required'=>'You must type your name Please',
-            'job.required'=>'You must type your job Please',
-            'phone.required'=>'You must type your phone Please',
-           'email.required'=>'You must type your email Please',
-            'address.required'=>'You must type your address Please',
-            'photo.required'=>'You must upload your photo Please',
-            'pdfresume.required'=>'You must upload your pdf resume Please',
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $photoname = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('photocandidates'), $photoname);
+            $candidate->photo = $photoname;
+        }
             'videocandidate.required'=>'You must upload your mp4 video Please',
 
-        ]
-
-
-
-
-
-       );
+        if ($request->hasFile('pdfresume')) {
+            $pdfresume = $request->file('pdfresume');
+            $pdfresumename = time() . '_' . uniqid() . '.' . $pdfresume->getClientOriginalExtension();
+            $pdfresume->move(public_path('pdfcandidates'), $pdfresumename);
+            $candidate->pdfresume = $pdfresumename;
+        }
 
         $candidate->name = $request->name;
-        $candidate->job = $request->job;
-        $candidate->phone = $request->phone;
-        $candidate->email = $request->email;
-        $candidate->address = $request->address;
-
-//image
-        $image = $request->photo;
+        if ($request->hasFile('videocandidate')) {
+            $videocandidate = $request->file('videocandidate');
+            $videocandidatename = time() . '_' . uniqid() . '.' . $videocandidate->getClientOriginalExtension();
+            $videocandidate->move(public_path('videocandidates'), $videocandidatename);
+            $candidate->videocandidate = $videocandidatename;
+        }
 
         $photoname = time().'.'.$image->getClientOriginalExtension();
 
@@ -67,20 +68,19 @@ class CandidateController extends Controller
 
         $candidate->photo = $photoname;
 
-//pdf
-
+        $candidates = Candidate::latest()->paginate(15);
+        return view('admin.candidates', compact('candidates'));
         $pdfresume = $request->pdfresume;
 
         $pdfresumename = time().'.'.$pdfresume->getClientOriginalExtension();
-
-        $pdfresume->move('pdfcandidates',$pdfresumename);
-
-        $candidate->pdfresume = $pdfresumename;
-
-//video
-
-        $videocandidate = $request->videocandidate;
-
+        $candidate = Candidate::find($id);
+        if ($candidate) {
+            $this->deleteFile('photocandidates', $candidate->photo);
+            $this->deleteFile('pdfcandidates', $candidate->pdfresume);
+            $this->deleteFile('videocandidates', $candidate->videocandidate);
+            $candidate->delete();
+        }
+        return redirect()->back();
         $videocandidatename = time().'.'.$videocandidate->getClientOriginalExtension();
 
         $videocandidate->move('videocandidates',$videocandidatename);
@@ -91,45 +91,33 @@ class CandidateController extends Controller
         $candidate->save();
 
         return redirect()->route('show_home')->with('success','Your resume is sent successfully!');
-
-
-
+        $image = $request->file('photo');
+        $pdf = $request->file('pdfresume');
+        $video = $request->file('videocandidate');
 
     }
-
-    public function read_candidate(){
-
-
-        $candidates = Candidate::all();
-
-        return view('admin.candidates', compact('candidates'));
-    }
-
-    public function delete_candidate($id){
+        if ($request->hasFile('photo')) {
+            $this->deleteFile('photocandidates', $candidate->photo);
+            $photoname = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('photocandidates'), $photoname);
+            $candidate->photo = $photoname;
+        }
 
         $candidate = Candidate::find($id);
-
-       unlink('photocandidates/'.$candidate->photo);
-       unlink('pdfcandidates/'.$candidate->pdfresume);
-       unlink('videocandidates/'.$candidate->videocandidate);
-
-        $candidate->delete();
-
-        return redirect()->back();
-
-
+        if ($request->hasFile('pdfresume')) {
+            $this->deleteFile('pdfcandidates', $candidate->pdfresume);
+            $pdfresumename = time() . '_' . uniqid() . '.' . $pdf->getClientOriginalExtension();
+            $pdf->move(public_path('pdfcandidates'), $pdfresumename);
+            $candidate->pdfresume = $pdfresumename;
+        }
     }
 
-    public function edit_candidate($id){
-
-        $candidate = Candidate::find($id);
-
-        return view('admin.candidate_edit',compact('candidate'));
-
-
-    }
-
-    public function update_candidate(Request $request, $id){
+        if ($request->hasFile('videocandidate')) {
+            $this->deleteFile('videocandidates', $candidate->videocandidate);
+            $videocandidatename = time() . '_' . uniqid() . '.' . $video->getClientOriginalExtension();
+            $video->move(public_path('videocandidates'), $videocandidatename);
+            $candidate->videocandidate = $videocandidatename;
+        }
 
         $candidate= Candidate::find($id);
 
@@ -137,10 +125,30 @@ class CandidateController extends Controller
         $candidate->job = $request->job;
         $candidate->phone = $request->phone;
         $candidate->email = $request->email;
-        $candidate->address = $request->address;
+    $pdfcandidate = Candidate::find($pdfdownload);
+    if (!$pdfcandidate || !$pdfcandidate->pdfresume) {
+        abort(404);
+    }
 
+    $path = public_path('pdfcandidates/' . $pdfcandidate->pdfresume);
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->download($path);
         $image = $request->photo;
         $pdf = $request->pdfresume;
+    /**
+     * Delete a file in public folder if it exists.
+     */
+    private function deleteFile(string $folder, ?string $filename)
+    {
+        if (!$filename) return;
+        $path = public_path(trim($folder, '/') . '/' . $filename);
+        if (file_exists($path)) {
+            @unlink($path);
+        }
+    }
         $video = $request->videocandidate;
 //Image
         If($image){
